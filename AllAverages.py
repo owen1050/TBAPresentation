@@ -25,8 +25,10 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-year = 2024
-teams = tba.district_teams(str(year) + "fma", keys = True)
+year = "2024"
+district = "fma"
+
+teams = tba.district_teams(year + district, keys = True)
 print("Got a list of " + str(len(teams)) + " teams")
 
 for team in teams[0:20]:
