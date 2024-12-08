@@ -6,6 +6,7 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-status = tba.status()
+matchKey = "2024miket_qm14"
+match = tba.match(key = matchKey)
 
-print(status)
+print(match["alliances"]["red"]["score"])
