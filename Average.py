@@ -6,6 +6,21 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-match = tba.match(key = "2024miket_qm14")
+team = "frc2056"
+year = "2024"
 
-print(match["alliances"]["red"]["score"])
+matches = tba.team_matches(team, year = year, simple = True)
+
+totalScore = 0
+numberOfMatches = len(matches)
+
+for match in matches:
+	isOnRed = team in match["alliances"]["red"]["team_keys"]
+	if(isOnRed):
+		totalScore = totalScore + match["alliances"]["red"]["score"]
+	else:
+		totalScore = totalScore + match["alliances"]["blue"]["score"]
+
+print("totalScore:" + str(totalScore))
+print("numMatches:" + str(numberOfMatches))
+print("avgScore:" + str((totalScore/numberOfMatches)))
