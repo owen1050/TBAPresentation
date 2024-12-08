@@ -11,6 +11,6 @@ tba = tbapy.TBA(key)
 team = "frc8513"
 year = "2024"
 
-team = tba.team_events(team, year = year)
+team = tba.team_events(team)
 
 print(team)

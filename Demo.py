@@ -6,7 +6,6 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-matchKey = ""
-match = tba.match(key = matchKey)
+status = tba.status()
 
-print(match["alliances"]["red"]["score"])
+print(status)
