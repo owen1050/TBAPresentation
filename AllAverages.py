@@ -3,7 +3,7 @@ import tbapy
 
 def getAverageScore(team, year):
 
-	matches = tba.team_matches(team, year = year, simple = True)
+	matches = tba.team_matches(team, year = year, simple = False)
 
 	totalScore = 0
 	numberOfMatches = len(matches)
@@ -11,9 +11,9 @@ def getAverageScore(team, year):
 	for match in matches:
 		isOnRed = team in match["alliances"]["red"]["team_keys"]
 		if(isOnRed):
-			totalScore = totalScore + match["alliances"]["red"]["score"]
+			totalScore = totalScore + match["score_breakdown"]["red"]["netAlgaeCount"] - match["score_breakdown"]["blue"]["wallAlgaeCount"]
 		else:
-			totalScore = totalScore + match["alliances"]["blue"]["score"]
+			totalScore = totalScore + match["score_breakdown"]["blue"]["netAlgaeCount"]- match["score_breakdown"]["red"]["wallAlgaeCount"]
 
 	if(numberOfMatches == 0):
 		return 0
@@ -31,8 +31,7 @@ district = "fma"
 teams = tba.district_teams(year + district, keys = True)
 print("Got a list of " + str(len(teams)) + " teams")
 
-for team in teams:
-	print(team + "\t" + str(getAverageScore(team, year)))
+print(teams)
 
 
 
