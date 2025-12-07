@@ -25,14 +25,14 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-year = "2024"
+year = "2025"
 district = "fma"
 
 teams = tba.district_teams(year + district, keys = True)
 print("Got a list of " + str(len(teams)) + " teams")
 
 for team in teams:
-	print(team + ":" + str(getAverageScore(team, year)))
+	print(team + "\t" + str(getAverageScore(team, year)))
 
 
 

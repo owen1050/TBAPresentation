@@ -6,16 +6,14 @@ f.close()
 
 tba = tbapy.TBA(key)
 
-#https://www.thebluealliance.com/match/2024njfla_qm18
-#8513 and 1218 climbed, 8513 trapped (Would have been earliest double trap in world)
+#Checking what a specific team did this match
 team = "frc8513"
-match = "2024njfla_qm18"
+match = "2025njfla_qm2"
 
-match = tba.match("2024njfla_qm18")
+match = tba.match(match)
 isOnRed = team in match["alliances"]["red"]["team_keys"]
 teamPos = -1
 teamEndGame = ""
-trapped = False
 alliance = "blue"
 if(isOnRed):
 	alliance = "red"
@@ -23,7 +21,6 @@ if(isOnRed):
 #index of team key is 0,1,2 so add one to make it 1, 2, 3
 teamPos = match["alliances"][alliance]["team_keys"].index(team) + 1
 teamEndGame = match["score_breakdown"][alliance]["endGameRobot" + str(teamPos)]
-trapped = match["score_breakdown"][alliance]["trap" + teamEndGame]
 
 
-print(team, "Alliance:", alliance, teamPos, "\nClimbed:", teamEndGame, "Trapped:", trapped)	
+print(team, "Alliance:", alliance, teamPos, "\nEnd Game:", teamEndGame)	

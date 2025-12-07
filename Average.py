@@ -7,7 +7,7 @@ f.close()
 tba = tbapy.TBA(key)
 
 team = "frc8513"
-year = "2024"
+year = "2025"
 
 matches = tba.team_matches(team, year = year, simple = True)
 
