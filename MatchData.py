@@ -44,7 +44,7 @@ tba = tbapy.TBA(key)
 
 data = generateAllEventsToWinnerMaps()
 
-with open('data.pkl', 'wb') as file:
+with open('dataafter4.pkl', 'wb') as file:
 	pickle.dump(data, file)
 
 print(data)
