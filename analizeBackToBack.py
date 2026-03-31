@@ -17,11 +17,8 @@ for i in range(len(loaded_data)):
         try:
             teamsWonThis = year[event]
             teamsWonNext = loaded_data[i+1][str(yearInt + 1) + eventMinusYear]
-            teamsWonNextNext = loaded_data[i+2][str(yearInt + 2) + eventMinusYear]
-            teamsWonNextNextNext = loaded_data[i+3][str(yearInt + 3) + eventMinusYear]
-            teamsWonNextNextNextNext = loaded_data[i+4][str(yearInt + 4) + eventMinusYear]
             for team in teamsWonThis:
-                if(team in teamsWonNext and team in teamsWonNextNext and team in teamsWonNextNextNext and team in teamsWonNextNextNextNext):
+                if(team in teamsWonNext):
                     backToBack.append((team, eventMinusYear, yearInt))
                     teamsBTB.append(team)
             #print(eventMinusYear, teamsWonThis, teamsWonNext)
@@ -34,7 +31,8 @@ for year in backToBackYearTeams:
     teamsAlreadySeen = []
     for team in backToBackYearTeams[year]:
         if(team in teamsAlreadySeen):
-            print(team, year)
+            pass
+        print(team, year)
         teamsAlreadySeen.append(team)
 
 #print(backToBackYearTeams)
