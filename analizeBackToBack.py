@@ -16,7 +16,13 @@ for i in range(len(loaded_data)):
         eventMinusYear = event[4:]
         try:
             teamsWonThis = year[event]
-            teamsWonNext = loaded_data[i+1][str(yearInt + 1) + eventMinusYear]
+            print(yearInt)
+            yearD = 1
+            if(yearInt + 1 >= 2020 and yearInt < 2020):
+                yearInt = yearInt + 2
+                yearD = yearD + 2
+            print(yearInt, yearD)    
+            teamsWonNext = loaded_data[i+yearD][str(yearInt + 1) + eventMinusYear]
             for team in teamsWonThis:
                 if(team in teamsWonNext):
                     backToBack.append((team, eventMinusYear, yearInt))
